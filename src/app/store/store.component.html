@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">🛒 Shopping Store</h2>
+    <a class="cart-icon" routerLink="/cart">
+      🛒 <span *ngIf="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span>
+    </a>
+    <div class="product-grid">
+      <div *ngFor="let product of products" class="product-card">
+        <div class="card shadow-sm">
+          <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text description">{{ product.description }}</p>
+            <p class="text-primary"><b>₹{{ product.price }}</b></p>
+            <button class="btn btn-success w-100" (click)="addToCart(product)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
